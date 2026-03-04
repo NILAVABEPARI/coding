@@ -1,0 +1,38 @@
+.accordion {
+    width: 500px;
+    margin: 50px auto;
+}
+
+.accordion-item {
+    border-bottom: 2px solid gray;
+    /* background-color: rgb(45, 21, 206); */
+}
+
+.accordion-button{
+    width: 100%;
+    color: purple;
+    background-color: lightblue;
+    border: none;
+}
+
+.arrow {
+    transition: transform 0.3s ease;
+}
+
+.rotate {
+    transform: rotate(90deg);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.accordion-content.open {
+    max-height: 200px;
+}
+
+.accordion-inner {
+    padding: 12px;
+}

@@ -1,0 +1,1 @@
+const result = students.map(arr => arr.name.toUpperCase())

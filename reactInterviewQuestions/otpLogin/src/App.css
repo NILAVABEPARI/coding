@@ -1,0 +1,16 @@
+* {
+    background-color: rgb(219, 212, 212);
+}
+
+.app {
+    font-family: sans-serif;
+    text-align: center;
+}
+
+.otpInput{
+    margin: 5px;
+    font-size: 1.2em;
+    height: 40px;
+    width: 40px;
+    text-align: center;
+}

@@ -1,0 +1,17 @@
+.scroll-intersection-observer{
+    width: 400px;
+    height: 500px;
+    overflow-y: auto;
+    background-color: gray;
+    padding: 10px;
+}
+
+.row {
+    height: 10px;
+    font-size: 14px;   
+}
+
+.loading {
+    position: sticky;
+    bottom: 0;
+}

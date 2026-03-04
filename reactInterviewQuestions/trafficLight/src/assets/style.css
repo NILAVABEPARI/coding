@@ -1,0 +1,15 @@
+.trafficLights {
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    width: max-content;
+    padding: 16px;
+    gap: 16px;
+}
+
+.lights{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    background-color: darkgray;
+}

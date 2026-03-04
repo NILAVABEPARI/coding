@@ -1,0 +1,35 @@
+scalability -- it is the property of the system to handle a growing amount of load by adding resources to the system
+a system that can adapt to the growing amount of work is called a scalable system
+
+availability -- it is the proportion of time a system is operational and accessible when required.
+availability == uptime / uptime + downtime
+uptime -- the amount of time when the system is accessible
+downtime -- the amount of time when the system is not accessible due to failures, or maintenance
+
+latency -- it is the amount of time taken to complete 1 single request
+low latency -- the system has less lag and is more responsive and has faster response time
+high -- the system has more lag and the user will have bad ux
+
+throughput -- it is the total amount of work done or data processed in a fixed amount of time
+generally it is measured in requests per second (rps) or transactions per second (tps)
+
+cap theorem -- in a distributed system, we can have only 2 out of the 3 properties -- 
+consistency -- 
+availability -- 
+partition tolerance -- 
+
+types of consistency -- 
+strong -- expensive in terms of performance but always updated data reads -- banks
+casual -- in specific order -- comments on a post
+read-your-own-writes -- own update read first whereas other users may see stale data -- update social media profile image
+eventual -- they will be consistent over time -- most relaxed form
+
+
+
+approach -- 
+1. requirements -- functional and non-functional
+2. core entities -- nouns of a system -- tables in a db, etc
+3. api or interface
+4. data flow
+5. hld
+6. deep dives

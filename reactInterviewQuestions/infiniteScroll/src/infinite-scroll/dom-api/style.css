@@ -1,0 +1,37 @@
+.scroll-dom-api {
+    width: 420px;               /* fixed width */
+    height: 600px;              /* fixed height */
+    max-width: calc(100% - 32px);
+    overflow-y: auto;           /* make the inner content scrollable */
+    background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+    border-radius: 12px;
+    padding: 14px;
+    box-shadow: 0 10px 30px rgba(20, 30, 60, 0.08);
+    border: 1px solid rgba(35, 50, 80, 0.04);
+    box-sizing: border-box;
+}
+
+.row {
+    min-height: 56px;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+    background: linear-gradient(180deg, #ffffff 0%, #fbfbff 100%);
+    border-radius: 10px;
+    border: 1px solid rgba(20, 30, 60, 0.04);
+    color: #223;
+    font-weight: 600;
+    font-size: 16px;
+    box-shadow: 0 1px 4px rgba(20, 30, 60, 0.03);
+}
+
+.loading {
+    position: sticky;
+    bottom: 0;
+    gap: 10px;
+    padding: 12px 8px;
+    margin-top: 12px;
+    border: 2px solid rgba(20,30,60,0.04);
+    color: black;
+    font-weight: 600;
+    font-size: 14px;
+}

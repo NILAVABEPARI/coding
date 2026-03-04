@@ -1,0 +1,15 @@
+.folder {
+  background-color: lightblue;
+  cursor: pointer;
+  width: 300px;
+  margin-top: 5px;
+  padding: 2px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.file {
+  margin-top: 5px;
+  padding: 2px;
+  display: flex;
+}
