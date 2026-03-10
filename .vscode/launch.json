@@ -3,6 +3,55 @@
     "configurations": [
         {
             "type": "java",
+            "name": "SimpleFactoryPattern",
+            "request": "launch",
+            "mainClass": "SimpleFactoryPattern",
+            "projectName": "coding_667dc21b"
+        },
+        {
+            "type": "java",
+            "name": "FactoryPattern",
+            "request": "launch",
+            "mainClass": "FactoryPattern",
+            "projectName": "coding_667dc21b"
+        },
+        {
+            "type": "java",
+            "name": "FactoryPattern",
+            "request": "launch",
+            "mainClass": "FactoryPattern.FactoryPattern",
+            "projectName": "coding_667dc21b"
+        },
+        {
+            "type": "java",
+            "name": "LazyLoading",
+            "request": "launch",
+            "mainClass": "LazyLoading",
+            "projectName": "coding_667dc21b"
+        },
+        {
+            "type": "java",
+            "name": "EagerSingletonPattern",
+            "request": "launch",
+            "mainClass": "EagerSingletonPattern",
+            "projectName": "coding_667dc21b"
+        },
+        {
+            "type": "java",
+            "name": "EagerSingletonPattern",
+            "request": "launch",
+            "mainClass": "SingletonPattern.EagerSingletonPattern",
+            "projectName": "coding_667dc21b"
+        },
+        {
+            "type": "java",
+            "name": "EagerSingleton",
+            "request": "launch",
+            "mainClass": "SingletonPattern.EagerSingleton",
+            "projectName": "coding_667dc21b"
+        },
+        {
+            "type": "java",
             "name": "DependencyInversion",
             "request": "launch",
             "mainClass": "DependencyInversion",

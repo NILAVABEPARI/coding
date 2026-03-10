@@ -119,7 +119,8 @@
         "Lassi",
         "Paneer",
         "topo",
-        "tumpi"
+        "tumpi",
+        "websocketsdemo"
     ],
     "C_Cpp.errorSquiggles": "disabled",
     "svn.ignoreMissingSvnWarning": true,
