@@ -37,8 +37,12 @@ class SlackNotification implements Notification {
     }
 }
 
+// ! An abstract class is a class that cannot be instantiated directly.
 abstract class NotificationCreator {
-    // Factory Method - subclasses decide what to create
+    /*
+     * Factory Method - subclasses decide what to create
+     * abstract method: Has no implementation and must be implemented by subclasses
+     */
     public abstract Notification createNotification();
 
     // Shared logic that uses the factory method
@@ -97,3 +101,37 @@ public class FactoryPattern {
         creator.send("Standup in 10 minutes!");
     }
 }
+
+/*
+ * Client (main)
+ * |
+ * | new EmailNotificationCreator()
+ * v
+ * EmailNotificationCreator Object
+ * |
+ * | creator.send("Welcome")
+ * v
+ * NotificationCreator.send()
+ * |
+ * | createNotification()
+ * v
+ * EmailNotificationCreator.createNotification()
+ * |
+ * | new EmailNotification()
+ * v
+ * EmailNotification Object
+ * |
+ * | send("Welcome")
+ * v
+ * Output: Sending email: Welcome to our platform!
+ */
+// ///////////////////////////////////
+/*
+ * Product Interface
+ * ↓
+ * Concrete Products
+ * ↓
+ * Abstract Creator
+ * ↓
+ * Concrete Creators
+ */

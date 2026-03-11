@@ -1,9 +1,11 @@
 // ! Class implementing Eager Loading
 class EagerSingleton {
-    // ! final - cannot be changed or reassigned after initialization
-    // ! static - belongs to the class rather than the object
-    // ! there is only one instance of the class and it is created when the class is
-    // loaded
+    /*
+     * final - cannot be changed or reassigned after initialization
+     * static - belongs to the class rather than the object
+     * there is only one instance of the class and it is created when the class is
+     * loaded
+     */
     private static final EagerSingleton instance = new EagerSingleton();
 
     // private constructor

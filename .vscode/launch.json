@@ -3,6 +3,48 @@
     "configurations": [
         {
             "type": "java",
+            "name": "PrototypePattern",
+            "request": "launch",
+            "mainClass": "PrototypePattern",
+            "projectName": "coding_667dc21b"
+        },
+        {
+            "type": "java",
+            "name": "PrototypePattern",
+            "request": "launch",
+            "mainClass": "PrototypePattern.PrototypePattern",
+            "projectName": "coding_667dc21b"
+        },
+        {
+            "type": "java",
+            "name": "BuilderPattern",
+            "request": "launch",
+            "mainClass": "BuilderPattern",
+            "projectName": "coding_667dc21b"
+        },
+        {
+            "type": "java",
+            "name": "BuilderPattern",
+            "request": "launch",
+            "mainClass": "BuilderPattern.BuilderPattern",
+            "projectName": "coding_667dc21b"
+        },
+        {
+            "type": "java",
+            "name": "Test",
+            "request": "launch",
+            "mainClass": "Test",
+            "projectName": "coding_667dc21b"
+        },
+        {
+            "type": "java",
+            "name": "AbstractFactoryPattern",
+            "request": "launch",
+            "mainClass": "AbstractFactoryPattern",
+            "projectName": "coding_667dc21b"
+        },
+        {
+            "type": "java",
             "name": "SimpleFactoryPattern",
             "request": "launch",
             "mainClass": "SimpleFactoryPattern",
