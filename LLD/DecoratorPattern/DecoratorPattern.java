@@ -1,10 +1,11 @@
-// component interface 
+// Component Interface 
 interface Pizza {
     String getDescription();
+
     double getCost();
 }
 
-// base class
+// Concrete Component: Base Class
 class PlainPizza implements Pizza {
     @Override
     public String getDescription() {
@@ -17,6 +18,7 @@ class PlainPizza implements Pizza {
     }
 }
 
+// Concrete Component: Base Class
 class MargheritaPizza implements Pizza {
     @Override
     public String getDescription() {
@@ -29,6 +31,8 @@ class MargheritaPizza implements Pizza {
     }
 }
 
+// Abstract Decorator
+// Implements Pizza and holds a reference to a Pizza object
 abstract class PizzaDecorator implements Pizza {
     protected Pizza pizza;
 
@@ -37,6 +41,7 @@ abstract class PizzaDecorator implements Pizza {
     }
 }
 
+// Concrete Decorator: Adds Extra Cheese
 class ExtraCheese extends PizzaDecorator {
     public ExtraCheese(Pizza pizza) {
         super(pizza);
@@ -53,6 +58,7 @@ class ExtraCheese extends PizzaDecorator {
     }
 }
 
+// Concrete Decorator: Adds Olives
 class Olives extends PizzaDecorator {
     public Olives(Pizza pizza) {
         super(pizza);
@@ -65,12 +71,12 @@ class Olives extends PizzaDecorator {
 
     @Override
     public double getCost() {
-        return pizza.getCost()+ 30.0;
+        return pizza.getCost() + 30.0;
     }
 }
 
-public class Main {
-    public static void main(String []args) {
+public class DecoratorPattern {
+    public static void main(String[] args) {
         Pizza myPizza = new PlainPizza();
 
         myPizza = new ExtraCheese(myPizza);

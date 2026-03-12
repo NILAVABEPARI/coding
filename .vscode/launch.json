@@ -3,6 +3,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "DecoratorPattern",
+            "request": "launch",
+            "mainClass": "DecoratorPattern",
+            "projectName": "coding_667dc21b"
+        },
+        {
+            "type": "java",
+            "name": "AdapterPattern",
+            "request": "launch",
+            "mainClass": "AdapterPattern",
+            "projectName": "coding_667dc21b"
+        },
+        {
+            "type": "java",
             "name": "PrototypePattern",
             "request": "launch",
             "mainClass": "PrototypePattern",
