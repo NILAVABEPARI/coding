@@ -3,6 +3,41 @@
     "configurations": [
         {
             "type": "java",
+            "name": "FlyweightPattern",
+            "request": "launch",
+            "mainClass": "FlyweightPattern",
+            "projectName": "coding_667dc21b"
+        },
+        {
+            "type": "java",
+            "name": "BridgePattern",
+            "request": "launch",
+            "mainClass": "BridgePattern",
+            "projectName": "coding_667dc21b"
+        },
+        {
+            "type": "java",
+            "name": "ProxyPatternStriver",
+            "request": "launch",
+            "mainClass": "ProxyPatternStriver",
+            "projectName": "coding_667dc21b"
+        },
+        {
+            "type": "java",
+            "name": "ProxyPattern",
+            "request": "launch",
+            "mainClass": "ProxyPattern",
+            "projectName": "coding_667dc21b"
+        },
+        {
+            "type": "java",
+            "name": "CompositePattern",
+            "request": "launch",
+            "mainClass": "CompositePattern",
+            "projectName": "coding_667dc21b"
+        },
+        {
+            "type": "java",
             "name": "DecoratorPattern",
             "request": "launch",
             "mainClass": "DecoratorPattern",

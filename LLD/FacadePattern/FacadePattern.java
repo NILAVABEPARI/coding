@@ -23,10 +23,10 @@ class TicketService {
 }
 
 class MovieBookingFacade {
-    private PaymentService paymentService;
-    private SeatReservationService seatReservationService;
-    private NotificationService notificationService;
-    private TicketService ticketService;
+    private final PaymentService paymentService;
+    private final SeatReservationService seatReservationService;
+    private final NotificationService notificationService;
+    private final TicketService ticketService;
 
     public MovieBookingFacade() {
         this.paymentService = new PaymentService();

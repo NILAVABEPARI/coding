@@ -1,15 +1,14 @@
-package CompositePattern;
-
 import java.util.*;
 
 interface CartItem {
     double getPrice();
+
     void display(String indent);
 }
 
 class Product implements CartItem {
-    private String name;
-    private double price;
+    private final String name;
+    private final double price;
 
     public Product(String name, double price) {
         this.name = name;
@@ -28,8 +27,8 @@ class Product implements CartItem {
 }
 
 class ProductBundle implements CartItem {
-    private String bundleName;
-    private List<CartItem> items = new ArrayList<>();
+    private final String bundleName;
+    private final List<CartItem> items = new ArrayList<>();
 
     public ProductBundle(String bundleName) {
         this.bundleName = bundleName;
@@ -42,7 +41,7 @@ class ProductBundle implements CartItem {
     @Override
     public double getPrice() {
         double total = 0;
-        for (CartItem item: items) {
+        for (CartItem item : items) {
             total += item.getPrice();
         }
         return total;
@@ -51,14 +50,14 @@ class ProductBundle implements CartItem {
     @Override
     public void display(String indent) {
         System.out.println(indent + "Bundle: " + bundleName);
-        for(CartItem item: items) {
+        for (CartItem item : items) {
             item.display(indent + " ");
         }
     }
 }
 
 public class CompositePattern {
-    public static void main (String []args) {
+    public static void main(String[] args) {
         // Individual Products
         CartItem book = new Product("Atomic Habits", 499);
         CartItem phone = new Product("iPhone 15", 79999);
