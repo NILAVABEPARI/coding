@@ -10,14 +10,16 @@ class NearestDriverStrategy implements MatchingStrategy {
     @Override
     public void match(String riderLocation) {
         System.out.println("matching with nearest available driver to " + riderLocation);
+        // Distance-based matching logic
     }
 }
 
-// concrete strategy: airport
+// concrete strategy: airport queue
 class AirportQueueStrategy implements MatchingStrategy {
     @Override
     public void match(String riderLocation) {
         System.out.println("matching with FIFO airport queue for " + riderLocation);
+        // Match first-in-line driver for airport pickup
     }
 }
 
@@ -26,6 +28,7 @@ class SurgePriorityStrategy implements MatchingStrategy {
     @Override
     public void match(String riderLocation) {
         System.out.println("matching rider using Surge Priority strategy near " + riderLocation);
+        // Prioritize high-surge zones or premium drivers
     }
 }
 
@@ -33,14 +36,17 @@ class SurgePriorityStrategy implements MatchingStrategy {
 class RideMatchingService {
     private MatchingStrategy matchingStrategy;
 
+    // Constructor injection of strategy
     public RideMatchingService(MatchingStrategy matchingStrategy) {
         this.matchingStrategy = matchingStrategy;
     }
 
+    // Setter injection for changing strategy dynamically
     public void setStrategy(MatchingStrategy matchingStrategy) {
         this.matchingStrategy = matchingStrategy;
     }
 
+    // Delegates the matching logic to the strategy
     public void matchRider(String location) {
         matchingStrategy.match(location);
     }

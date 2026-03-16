@@ -9,7 +9,7 @@ interface Subscriber {
 
 // concrete observer -- Email
 class EmailSubscriber implements Subscriber {
-    private String email;
+    private final String email;
 
     public EmailSubscriber(String email) {
         this.email = email;
@@ -23,7 +23,7 @@ class EmailSubscriber implements Subscriber {
 
 // concrete observer -- in app
 class InAppSubscriber implements Subscriber {
-    private String userName;
+    private final String userName;
 
     public InAppSubscriber(String userName) {
         this.userName = userName;
@@ -46,8 +46,8 @@ interface Channel {
 
 // concrete subject -- Youtube channel
 class YoutubeChannel implements Channel {
-    private String channelName;
-    private List<Subscriber> subscribers = new ArrayList<>();
+    private final String channelName;
+    private final List<Subscriber> subscribers = new ArrayList<>();
 
     public YoutubeChannel(String channelName) {
         this.channelName = channelName;

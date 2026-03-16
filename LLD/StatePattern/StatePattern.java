@@ -43,16 +43,19 @@ class OrderContext {
 
 // OrderPlacedState handles the behavior when the order is placed
 class OrderPlacedState implements OrderState {
+    @Override
     public void next(OrderContext context) {
         context.setState(new PreparingState());
         System.out.println("Order is now being prepared.");
     }
 
+    @Override
     public void cancel(OrderContext context) {
         context.setState(new CancelledState());
         System.out.println("Order has been cancelled.");
     }
 
+    @Override
     public String getStateName() {
         return "ORDER_PLACED";
     }
@@ -60,16 +63,19 @@ class OrderPlacedState implements OrderState {
 
 // PreparingState handles the behavior when the order is being prepared
 class PreparingState implements OrderState {
+    @Override
     public void next(OrderContext context) {
         context.setState(new OutForDeliveryState());
         System.out.println("Order is out for delivery.");
     }
 
+    @Override
     public void cancel(OrderContext context) {
         context.setState(new CancelledState());
         System.out.println("Order has been cancelled.");
     }
 
+    @Override
     public String getStateName() {
         return "PREPARING";
     }
@@ -77,15 +83,18 @@ class PreparingState implements OrderState {
 
 // OutForDeliveryState handles the behavior when the order is out for delivery
 class OutForDeliveryState implements OrderState {
+    @Override
     public void next(OrderContext context) {
         context.setState(new DeliveredState());
         System.out.println("Order has been delivered.");
     }
 
+    @Override
     public void cancel(OrderContext context) {
         System.out.println("Cannot cancel. Order is out for delivery.");
     }
 
+    @Override
     public String getStateName() {
         return "OUT_FOR_DELIVERY";
     }
@@ -93,14 +102,17 @@ class OutForDeliveryState implements OrderState {
 
 // DeliveredState handles the behavior when the order is delivered
 class DeliveredState implements OrderState {
+    @Override
     public void next(OrderContext context) {
         System.out.println("Order is already delivered.");
     }
 
+    @Override
     public void cancel(OrderContext context) {
         System.out.println("Cannot cancel a delivered order.");
     }
 
+    @Override
     public String getStateName() {
         return "DELIVERED";
     }
@@ -108,14 +120,17 @@ class DeliveredState implements OrderState {
 
 // CancelledState handles the behavior when the order is cancelled
 class CancelledState implements OrderState {
+    @Override
     public void next(OrderContext context) {
         System.out.println("Cancelled order cannot move to next state.");
     }
 
+    @Override
     public void cancel(OrderContext context) {
         System.out.println("Order is already cancelled.");
     }
 
+    @Override
     public String getStateName() {
         return "CANCELLED";
     }
