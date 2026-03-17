@@ -3,11 +3,11 @@ package domain;
 import java.util.UUID;
 
 public class Building {
-    private String id;
-    private String name;
-    private int minFloor;
-    private int maxFloor;
-    private int totalElevators;
+    private final String id;
+    private final String name;
+    private final int minFloor;
+    private final int maxFloor;
+    private final int totalElevators;
     private SystemState systemState;
 
     public Building(String name, int minFloor, int maxFloor, int totalElevators) {

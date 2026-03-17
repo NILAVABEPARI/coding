@@ -1,8 +1,13 @@
 package service;
 
-import domain.*;
+import domain.Direction;
+import domain.Elevator;
+import domain.ElevatorState;
+import domain.InternalRequest;
+import domain.SystemState;
 import domain.strategy.MovementStrategy;
 import domain.strategy.ScanStrategy;
+
 import java.util.List;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;

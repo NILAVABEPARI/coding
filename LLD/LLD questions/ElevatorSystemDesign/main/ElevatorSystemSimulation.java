@@ -3,9 +3,9 @@ package main;
 import controller.ElevatorController;
 import controller.ElevatorPanelController;
 import controller.FloorPanelController;
-import domain.Building;
 import domain.Elevator;
 import domain.strategy.LoadBalancingStrategy;
+import domain.Building;
 
 public class ElevatorSystemSimulation {
 

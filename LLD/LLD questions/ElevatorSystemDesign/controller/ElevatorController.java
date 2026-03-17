@@ -4,11 +4,11 @@ import domain.Elevator;
 import service.*;
 
 public class ElevatorController {
-    private ElevatorService elevatorService;
-    private BuildingService buildingService;
-    private RequestService requestService;
-    private DispatcherService dispatcherService;
-    private MovementService movementService;
+    private final ElevatorService elevatorService;
+    private final BuildingService buildingService;
+    private final RequestService requestService;
+    private final DispatcherService dispatcherService;
+    private final MovementService movementService;
 
     public ElevatorController() {
         this.elevatorService = new ElevatorService();

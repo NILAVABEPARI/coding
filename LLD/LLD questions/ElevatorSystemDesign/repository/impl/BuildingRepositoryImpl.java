@@ -1,8 +1,9 @@
 package repository.impl;
 
-import domain.Building;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
+
+import domain.Building;
 import repository.BuildingRepository;
 
 public class BuildingRepositoryImpl implements BuildingRepository {

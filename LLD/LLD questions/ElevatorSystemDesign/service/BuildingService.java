@@ -1,12 +1,12 @@
 package service;
 
-import domain.Building;
 import domain.SystemState;
+import domain.Building;
 import repository.BuildingRepository;
 import repository.impl.BuildingRepositoryImpl;
 
 public class BuildingService {
-    private BuildingRepository buildingRepository;
+    private final BuildingRepository buildingRepository;
 
     public BuildingService() {
         this.buildingRepository = new BuildingRepositoryImpl();

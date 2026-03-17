@@ -1,4 +1,4 @@
-package domain;
+package other;
 
 public class InternalButton {
 

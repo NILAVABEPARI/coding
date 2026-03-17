@@ -1,13 +1,14 @@
 package main;
 
-import domain.Building;
-import domain.ElevatorCar;
-import domain.ElevatorController;
-import domain.ElevatorScheduler;
-import domain.ExternalDispatcher;
-import domain.InternalButton;
-import domain.NearestElevatorStrategy;
 import java.util.Arrays;
+
+import other.Building2;
+import other.ElevatorCar;
+import other.ElevatorController;
+import other.ElevatorScheduler;
+import other.ExternalDispatcher;
+import other.InternalButton;
+import other.NearestElevatorStrategy;
 
 public class Demo {
 
@@ -35,7 +36,7 @@ public class Demo {
             ExternalDispatcher externalDispatcher = new ExternalDispatcher(elevatorScheduler);
 
             // Create a 5 floor building:
-            Building building = new Building(5, externalDispatcher);
+            Building2 building = new Building2(5, externalDispatcher);
 
             // 6. Start both the elevator controllers threads
             new Thread(controller1, "Elevator-1").start();

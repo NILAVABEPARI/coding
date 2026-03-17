@@ -1,8 +1,9 @@
 package repository;
 
-import domain.Building;
 import java.util.List;
 import java.util.Optional;
+
+import domain.Building;
 
 public interface BuildingRepository {
     Building save(Building building);
