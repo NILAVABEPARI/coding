@@ -7,7 +7,6 @@ import domain.ElevatorState;
  * Concrete state for when elevator is stopped
  */
 public class StoppedState implements ElevatorStateHandler {
-
     @Override
     public void openDoors(Elevator elevator) {
         elevator.setState(ElevatorState.DOORS_OPENING);
