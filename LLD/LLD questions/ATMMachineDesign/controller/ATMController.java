@@ -4,7 +4,7 @@ import domain.CashDrawer;
 import service.ATMService;
 
 public class ATMController {
-    private ATMService atmService;
+    private final ATMService atmService;
 
     public ATMController(ATMService atmService) {
         this.atmService = atmService;

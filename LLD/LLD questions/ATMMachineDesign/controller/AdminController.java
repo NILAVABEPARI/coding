@@ -2,11 +2,11 @@ package controller;
 
 import domain.CashDrawer;
 import domain.Denomination;
-import service.AdminService;
 import java.util.Map;
+import service.AdminService;
 
 public class AdminController {
-    private AdminService adminService;
+    private final AdminService adminService;
 
     public AdminController(AdminService adminService) {
         this.adminService = adminService;

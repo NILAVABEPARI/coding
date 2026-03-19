@@ -1,11 +1,11 @@
 package controller;
 
 import domain.ATM;
-import service.ATMService;
 import domain.exception.InvalidATMOperationException;
+import service.ATMService;
 
 public class CardController {
-    private ATMService atmService;
+    private final ATMService atmService;
 
     public CardController(ATMService atmService) {
         this.atmService = atmService;

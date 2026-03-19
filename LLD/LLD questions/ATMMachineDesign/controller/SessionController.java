@@ -2,13 +2,13 @@ package controller;
 
 import domain.ATM;
 import domain.Session;
-import service.SessionService;
-import service.ATMService;
 import domain.exception.InvalidATMOperationException;
+import service.ATMService;
+import service.SessionService;
 
 public class SessionController {
-    private SessionService sessionService;
-    private ATMService atmService;
+    private final SessionService sessionService;
+    private final ATMService atmService;
 
     public SessionController(SessionService sessionService, ATMService atmService) {
         this.sessionService = sessionService;

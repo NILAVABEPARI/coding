@@ -1,4 +1,5 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 using namespace std;
 
 class Solution
@@ -16,7 +17,10 @@ public:
             }
         }
         if (ind == -1)
-            return reverse(arr.begin(), arr.end());
+        {
+            reverse(arr.begin(), arr.end());
+            return arr;
+        }
         for (int i = n - 1; i > ind; i--)
         {
             if (arr[i] > arr[ind])
@@ -33,8 +37,10 @@ public:
 int main()
 {
     Solution s;
-    vector<int> arr(2, 1, 5, 4, 3, 0, 0);
-    vector<int> ans;
-    ans = s.nextPermutation(arr);
+    vector<int> arr = {2, 1, 5, 4, 3, 0, 0};
+    vector<int> ans = s.nextPermutation(arr);
+    cout << "next permutation -- " << endl;
+    for (int i = 0; i < ans.size(); i++)
+        cout << ans[i] << " ";
     return 0;
 }

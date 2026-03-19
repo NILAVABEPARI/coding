@@ -1,29 +1,46 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <unordered_set>
 using namespace std;
 
 class Solution
 {
 public:
-    int longestSubsequence(vector<int> &nums)
+    int longestConsecutive(vector<int> &nums)
     {
-        sort(nums.begin(), nums.end());
-        int longest = 1, cnt = 1;
-        for (int i = 0; i < nums.size() - 1; i++)
+        if (nums.size() == 0)
+            return 0;
+        unordered_set<int> st;
+        for (int i = 0; i < nums.size(); i++)
+            st.insert(nums[i]);
+        int longest = 1;
+        for (auto s : st)
         {
-            if (nums[i] + 1 == nums[i + 1])
-                cnt++;
-            else if (nums[i] != nums[i + 1])
+            // check if the current element is the smallest in the series
+            if (st.find(s - 1) == st.end())
             {
-                longest = max(cnt, longest);
-                cnt = 1;
+                int cnt = 1;
+                int x = s;
+                while (st.find(x + 1) != st.end())
+                {
+                    cnt++;
+                    x++;
+                }
+                longest = max(longest, cnt);
             }
         }
-        return max(longest, cnt);
+        return longest;
     }
-}
+};
 
-int
-main()
+int main()
 {
+    vector<int> a = {100, 4, 200, 1, 3, 2, 5, 6};
+
+    // Create an instance of solution class
+    Solution solution;
+    // Function call for finding longest consecutive sequence
+    int ans = solution.longestConsecutive(a);
+    cout << "The longest consecutive sequence is " << ans << "\n";
     return 0;
 }

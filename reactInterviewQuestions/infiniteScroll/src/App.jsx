@@ -5,7 +5,7 @@ import InfiniteScrollIntersectionDom from './infinite-scroll/intersection-observ
 function App() {
 
   return (
-    <InfiniteScrollIntersectionDom />
+    <InfiniteScrollDomApi />
   )
 }
 

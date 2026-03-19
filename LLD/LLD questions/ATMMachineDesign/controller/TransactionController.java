@@ -1,20 +1,20 @@
 package controller;
 
 import domain.ATM;
+import domain.Denomination;
 import domain.Session;
 import domain.Transaction;
 import domain.TransactionType;
-import domain.Denomination;
-import service.TransactionService;
-import service.SessionService;
-import service.ATMService;
-import java.util.Map;
 import domain.exception.InvalidATMOperationException;
+import java.util.Map;
+import service.ATMService;
+import service.SessionService;
+import service.TransactionService;
 
 public class TransactionController {
-    private TransactionService transactionService; // kept for future direct access if needed
-    private SessionService sessionService;
-    private ATMService atmService;
+    private final TransactionService transactionService; // kept for future direct access if needed
+    private final SessionService sessionService;
+    private final ATMService atmService;
 
     public TransactionController(TransactionService transactionService,
             SessionService sessionService,
