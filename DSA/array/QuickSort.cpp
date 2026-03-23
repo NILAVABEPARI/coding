@@ -11,9 +11,9 @@ private:
         int i = low, j = high;
         while (i < j)
         {
-            while (nums[i] <= pivot && i <= high - 1)
+            while (nums[i] <= pivot && i <= high)
                 i++;
-            while (nums[j] >= pivot && j >= low + 1)
+            while (nums[j] > pivot && j >= low)
                 j--;
             if (i < j)
                 swap(nums[i], nums[j]);
