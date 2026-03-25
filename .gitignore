@@ -7,3 +7,5 @@ LLD/LLD questions/ElevatorSystemDesign/out/production/ElevatorSystemDesign/.idea
 LLD/LLD questions/ElevatorSystemDesign/out/production/ElevatorSystemDesign/.idea/vcs.xml
 *.class
 *.iml
+DSA/array/CountInversions.exe
+DSA/array/test.cpp
