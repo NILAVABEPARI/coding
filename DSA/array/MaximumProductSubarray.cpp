@@ -24,6 +24,18 @@ public:
     // optimal --
     int maxProduct2(vector<int> &nums)
     {
+        int pre = 1, suffix = 1, maxi = INT_MIN, n = nums.size();
+        for (int i = 0; i < n; i++)
+        {
+            if (pre == 0)
+                pre = 1;
+            if (suffix == 0)
+                suffix = 1;
+            pre *= nums[i];
+            suffix *= nums[n - i - 1];
+            maxi = max(maxi, max(pre, suffix));
+        }
+        return maxi;
     }
 };
 

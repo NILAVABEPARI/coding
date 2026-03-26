@@ -61,7 +61,7 @@ public:
         int n = nums.size();
         sort(nums.begin(), nums.end());
         vector<vector<int>> ans;
-        for (int i = 0; i < n - 3; i++)
+        for (int i = 0; i < n; i++)
         {
             // skip duplicates for i
             if (i > 0 && nums[i] == nums[i - 1])
