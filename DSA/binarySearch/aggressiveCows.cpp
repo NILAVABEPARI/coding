@@ -1,39 +1,48 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
 class Solution
 {
-    int canBePlaced(vector<int> arr, int dist, int k)
+private:
+    int countCows(vector<int> &arr, int dist)
     {
-        int last = arr[0], cows = 1;
-        for (int i = 1; i < arr.size(); i++)
+        int i = 1, n = arr.size(), cnt = 1, start = arr[0];
+        while (i < n)
         {
-            if (arr[i] - last >= dist)
+            if (arr[i] - start >= dist)
             {
-                cows++;
-                last = arr[i];
+                cnt++;
+                start = arr[i];
             }
+            i++;
         }
-        return cows >= k
+        return cnt;
     }
 
 public:
     int aggressiveCows(vector<int> &arr, int k)
     {
         sort(arr.begin(), arr.end());
-        int mini = arr[0], maxi = arr[arr.size() - 1];
-        // for (int i = 1; i <= (maxi - mini); i++)
-        // {
-        //     if (!canBePlaced(arr, i, k))
-        //         return i - 1;
-        // }
-        // return maxi - mini;
-
-        int l = 1, h = maxi - mini;
-        while (l <= h)
+        int n = arr.size(), low = 1, high = arr[n - 1] - arr[0];
+        while (low <= high)
         {
-            int mid = l + (h - l) / 2;
-            if (canBePlaced(arr, mid, k))
-                l = mid + 1;
+            int mid = low + (high - low) / 2;
+            if (countCows(arr, mid) >= k)
+                low = mid + 1;
             else
-                h = mid - 1;
+                high = mid - 1;
         }
+        return high;
     }
 };
+
+int main()
+{
+    vector<int> arr = {0, 3, 4, 7, 10, 9};
+    int k = 4;
+    Solution sol;
+    cout << "maximum distance -- " << sol.aggressiveCows(arr, k);
+    return 0;
+}

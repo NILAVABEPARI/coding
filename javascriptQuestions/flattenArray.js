@@ -29,15 +29,3 @@ console.log("using polyfill -- ", flatten(sampleData)); // 1 level
 console.log("using polyfill -- ", flatten(sampleData2)); // 1 level
 console.log("using polyfill -- ", flatten(sampleData, 2)); // 2nd level nested
 console.log("using polyfill -- ", flatten(sampleData, 100)); // entire array
-
-
-
-function flatten2(originalArr, level = 1) {
-    const result = [];
-    originalArr.forEach(element => {
-        if (Array.isArray(element) && level > 0)
-            result.push(...flatten(element, level - 1));
-        else result.push(element);
-    });
-    return result;
-}

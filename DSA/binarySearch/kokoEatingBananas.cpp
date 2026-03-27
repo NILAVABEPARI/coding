@@ -1,36 +1,41 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
 class Solution
 {
-    int maxBananas(vector<int> nums)
+private:
+    long countHours(vector<int> nums, int hours)
     {
-        int maxBananas = INT_MIN;
-        for (int i = 0; i < nums.size(); i++)
-        {
-            maxBananas = max(maxBananas, nums[i]);
-        }
-        return maxBananas;
-    }
-    int checkHours(vector<int> nums, int cap)
-    {
-        int h = 0;
-        for (int i = 0; i < nums.size(); i++)
-        {
-            h + = ceil((double)nums[i] / (double)cap);
-        }
-        return h;
+        long sum = 0;
+        for (auto &it : nums)
+            sum += ceil((double)it / hours);
+        return sum;
     }
 
 public:
-    int bananas(vector<int> nums, int hours)
+    int minimumRateToEatBananas(vector<int> nums, int hours)
     {
-        int n = nums.size(), l = 1, h = maxBananas(nums);
-        while (l <= h)
+        int low = 1, high = 0;
+        for (auto &it : nums)
+            high = max(high, it);
+        while (low <= high)
         {
-            int mid = l + (h - l) / 2;
-            if (checkHours(nums, mid) > hours)
-                l = mid + 1;
+            int mid = low + (high - low) / 2;
+            if (countHours(nums, mid) <= hours)
+                high = mid - 1;
             else
-                h = mid - 1;
+                low = mid + 1;
         }
-        return l;
+        return low;
     }
 };
+
+int main()
+{
+    Solution sol;
+    vector<int> arr = {3, 7, 6, 11};
+    int hour = 8;
+    cout << "minimum number of bananas -- " << sol.minimumRateToEatBananas(arr, hour);
+    return 0;
+}

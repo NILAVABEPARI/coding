@@ -1,35 +1,41 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 using namespace std;
 
 class Solution
 {
 public:
-    bool search(vector<int> arr, int target)
+    bool searchInARotatedSortedArrayII(vector<int> &nums, int target)
     {
-        int l = 0, r = arr.size() - 1;
-        while (l <= r)
+        int low = 0, high = nums.size() - 1;
+        while (low <= high)
         {
-            int mid = l + (r - l) / 2;
-            if (target == arr[mid])
+            int mid = low + (high - low) / 2;
+            // left side is sorted
+            if (nums[mid] == target)
                 return true;
-            else if (arr[l] == arr[mid] && arr[mid] == arr[r])
+            // !! extra check for duplicates -- if extremes are same as mid, reduce the window size
+            else if (nums[low] == nums[mid] && nums[mid] == nums[high])
             {
-                l++;
-                r--;
+                low++;
+                high--;
             }
-            else if (arr[l] <= arr[mid])
+            else if (nums[low] <= nums[mid])
             {
-                if (arr[l] <= target && target <= arr[mid])
-                    r = mid - 1;
+                // check if target actually exists in the range
+                if (nums[low] <= target && target <= nums[mid])
+                    high = mid - 1;
                 else
-                    l = mid + 1;
+                    low = mid + 1;
             }
+            // right side is sorted
             else
             {
-                if (arr[mid] <= target && target <= arr[r])
-                    l = mid + 1;
+                // check if target actually exists in the range
+                if (nums[mid] <= target && target <= nums[high])
+                    low = mid + 1;
                 else
-                    r = mid - 1;
+                    high = mid - 1;
             }
         }
         return false;
@@ -39,9 +45,8 @@ public:
 int main()
 {
     Solution s;
-    vector<int> arr(2, 1, 5, 4, 3, 0, 0);
-    int target;
-    cin >> target;
-    cout << s.search(arr, target);
+    vector<int> arr = {7, 8, 1, 2, 3, 3, 3, 4, 5, 6};
+    int target = 7;
+    cout << s.searchInARotatedSortedArrayII(arr, target);
     return 0;
 }

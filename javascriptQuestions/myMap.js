@@ -1,5 +1,5 @@
 const arr = [1, 2, 3, 4, 5];
-// const thisIsThis = { hey: 1 };
+const thisIsThis = { hey: 1 };
 
 
 // a function which returns an array by squaring each index
@@ -28,7 +28,9 @@ const arr = [1, 2, 3, 4, 5];
 
 // polyfill - 
 Array.prototype.myMap = function (callbackFn, thisArg) {
-    // NOTE: here if we console this then it will print the array as we are calling the myMap function on the array
+    // ! NOTE: here if we console this then it will print the array as we are calling the myMap function on the array
+
+    console.log('this arg inside function -- ', thisArg);
 
     // edge case -- 
     if (typeof callbackFn !== "function") {
@@ -54,5 +56,5 @@ function getSquaredNumber(num) {
 }
 
 // always have a named function call as a callbackFn because otherwise we have to read the entire function to understand what is happening inside it.
-const resultPolyfill = arr.myMap(getSquaredNumber);
+const resultPolyfill = arr.myMap(getSquaredNumber, thisIsThis);
 console.log('result -- ', resultPolyfill);

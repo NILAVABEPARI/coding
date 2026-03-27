@@ -1,4 +1,5 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 using namespace std;
 
 class Solution
@@ -6,29 +7,29 @@ class Solution
 public:
     int findMin(vector<int> &arr)
     {
-        int mini = INT_MAX;
-        int l = 0, h = arr.size() - 1;
-        while (l <= h)
+        int mini = INT_MAX, low = 0, high = arr.size() - 1;
+        while (low <= high)
         {
-            int mid = l + (h - l) / 2;
-            if (arr[l] <= arr[mid])
+            int mid = low + ((high - low) / 2);
+            if (arr[low] <= arr[mid])
             {
-                mini = min(mini, arr[l]);
-                l = mid + 1;
+                mini = min(mini, arr[low]);
+                low = mid + 1;
             }
-            else
+            else if ()
             {
                 mini = min(mini, arr[mid]);
-                h = mid - 1;
+                high = mid - 1;
             }
         }
         return mini;
     }
-}
+};
 
-int
-main()
+int main()
 {
-
+    Solution sol;
+    vector<int> arr = {4, 5, 6, 7, -7, 1, 2, 3};
+    cout << "smallest element -- " << sol.findMin(arr);
     return 0;
 }

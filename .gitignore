@@ -1,4 +1,7 @@
 Interview Bank for js.pdf
+Complied List of Java Interview question by Umesh Kaushik.pdf
+input.txt
+output.txt
 LLD/LLD questions/ElevatorSystemDesign/.idea/misc.xml
 LLD/LLD questions/ElevatorSystemDesign/.idea/modules.xml
 LLD/LLD questions/ElevatorSystemDesign/.idea/vcs.xml
@@ -9,3 +12,4 @@ LLD/LLD questions/ElevatorSystemDesign/out/production/ElevatorSystemDesign/.idea
 *.iml
 DSA/array/CountInversions.exe
 DSA/array/test.cpp
+javascriptQuestions/test.js
