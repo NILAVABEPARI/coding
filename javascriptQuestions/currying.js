@@ -89,33 +89,3 @@ console.log(totalSum(1, 2)(3, 4));
 // the curry function is called the number of times totalSum is called
 // args contains the 1st argument in the totalSum function, and next contains the 2nd argument
 // in each turn, 1 argument from the totalSum function is taken and added to the array of the  sum function's argument
-
-
-
-
-// f(1,2,3,4) -->> fun(1)(2)(3)(4)
-const sum2 = (a, b, c, d) => a + b + c + d;
-const targetSum = curry2(sum);
-targetSum(1)(2)(3)(4);
-
-function curry2(func) {
-    return function curriedFunction(...args) {
-        if (args.length >= func.length)
-            return func(...args);
-        else {
-            return function (...next) {
-                return curriedFunction(...args, ...next);
-            }
-        }
-    }
-}
-
-
-sum3(1, 2, 3)(4, 5)();
-
-function sum3(...a) {
-    return function (...b) {
-        if (!b || b.length === 0) return a?.[0] || 0;
-        else return sum3(a?.reduce((acc, curr) => acc + curr, 0), b?.reduce((acc, curr) => acc + curr, 0));
-    }
-}

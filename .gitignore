@@ -11,5 +11,5 @@ LLD/LLD questions/ElevatorSystemDesign/out/production/ElevatorSystemDesign/.idea
 *.class
 *.iml
 DSA/array/CountInversions.exe
-DSA/array/test.cpp
 javascriptQuestions/test.js
+DSA/test.cpp
