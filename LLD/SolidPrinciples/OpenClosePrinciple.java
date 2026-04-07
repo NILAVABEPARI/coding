@@ -1,4 +1,4 @@
-interface PaymentProcessor{
+interface PaymentProcessor {
     void processPayment(double amount);
 }
 
@@ -16,16 +16,19 @@ class PayPalPaymentProcessor implements PaymentProcessor {
     }
 }
 
+class CheckoutService {
+    public void checkoutService(PaymentProcessor processor, double amount) {
+        processor.processPayment(amount);
+    }
+}
+
 public class OpenClosePrinciple {
     public static void main(String[] args) {
         PaymentProcessor credit = new CreditCardPaymentProcessor();
         PaymentProcessor paypal = new PayPalPaymentProcessor();
 
-        processPayment(credit, 100);
-        processPayment(paypal, 150);
-    }
-
-    public static void processPayment(PaymentProcessor processor, double amount) {
-        processor.processPayment(amount);
+        CheckoutService checkout = new CheckoutService();
+        checkout.checkoutService(credit, 100);
+        checkout.checkoutService(paypal, 150);
     }
 }

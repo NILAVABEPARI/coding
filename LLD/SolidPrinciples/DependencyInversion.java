@@ -24,7 +24,7 @@ class TrendingNow implements RecommendationStrategy {
 }
 
 class RecommendationAlgorithm {
-    private RecommendationStrategy recommendationStrategy;
+    private final RecommendationStrategy recommendationStrategy;
 
     public RecommendationAlgorithm(RecommendationStrategy recommendationStrategy) {
         this.recommendationStrategy = recommendationStrategy;

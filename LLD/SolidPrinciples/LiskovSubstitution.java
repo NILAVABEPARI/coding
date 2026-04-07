@@ -23,7 +23,7 @@ class TextNotification extends Notification {
 }
 
 // Main class
-class LiskovSubstitution {
+public class LiskovSubstitution {
     // main method
     public static void main(String args[]) {
         /*

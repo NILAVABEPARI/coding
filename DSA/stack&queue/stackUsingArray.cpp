@@ -1,62 +1,91 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <string>
 using namespace std;
 
-class MyStack
+class ArrayStack
 {
 private:
-    int arr[1000];
-    int top;
+    int *stackArray;
+    int capacity;
+    int topIndex;
 
 public:
-    MyStack()
+    // constructor
+    ArrayStack(int size = 1000)
     {
-        top = -1;
+        cout << "stack is created of size -- " << size << endl;
+        capacity = size;
+        stackArray = new int[size];
+        topIndex = -1;
     }
-    void push(int);
-    int pop();
+
+    // Destructor
+    ~ArrayStack()
+    {
+        cout << "stack is being deleted" << endl;
+        delete[] stackArray;
+    }
+
+    void push(int x)
+    {
+        if (topIndex >= capacity - 1)
+        {
+            cout << "Stack overflow";
+            return;
+        }
+        stackArray[++topIndex] = x;
+    }
+
+    int pop()
+    {
+        if (isEmpty())
+        {
+            cout << "Stack is empty";
+            return -1;
+        }
+        return stackArray[topIndex--];
+    }
+
+    int top()
+    {
+        if (isEmpty())
+        {
+            cout << "Stack is empty";
+            return -1;
+        }
+        return stackArray[topIndex];
+    }
+
+    bool isEmpty()
+    {
+        return topIndex == -1;
+    }
 };
-
-void MyStack ::push(int x)
-{
-    if (top >= 999)
-        return;
-    arr[++top] = x;
-}
-
-int MyStack ::pop()
-{
-    if (top == -1)
-        return -1;
-    return arr[top--];
-}
 
 int main()
 {
-    MyStack *ms = new MyStack();
-    string line;
-    getline(cin, line);
-    stringstream ss(line);
-    vector<int> nums;
-    int num;
-    while (ss >> num)
+    ArrayStack stack;
+    vector<string> commands = {"ArrayStack", "push", "push", "top", "pop", "isEmpty"};
+    vector<vector<int>> inputs = {{}, {5}, {10}, {}, {}, {}};
+
+    for (size_t i = 0; i < commands.size(); ++i)
     {
-        nums.push_back(num);
-    }
-    int n = nums.size();
-    int i = 0;
-    while (i < n)
-    {
-        int queryType = nums[i++];
-        if (queryType == 1)
+        if (commands[i] == "push")
         {
-            int a = nums[i++];
-            ms->push(a);
+            stack.push(inputs[i][0]);
+            cout << "null ";
         }
-        else
-        {
-            cout << ms->pop() << " ";
-        }
+        else if (commands[i] == "pop")
+            cout << stack.pop() << " ";
+        else if (commands[i] == "top")
+            cout << stack.top() << " ";
+        else if (commands[i] == "isEmpty")
+            cout << (stack.isEmpty() ? "true" : "false") << " ";
+        else if (commands[i] == "ArrayStack")
+            cout << "null ";
     }
-    delete ms;
+    cout << endl;
+
     return 0;
 }

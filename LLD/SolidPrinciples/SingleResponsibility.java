@@ -1,38 +1,37 @@
-class CustomerService {
-    public void serveCustomer(){
-        System.out.println("Serving Customers...");
+class UserAuthenticator {
+    public void authenticate(String username, String password) {
+        System.out.println("Authenticating user..." + username);
     }
 }
 
-class SupplyOrder {
-    public void orderSupplies(){
-        System.out.println("Ordering Supplies...");
+class UserRepository {
+    public void saveUser(String user) {
+        System.out.println("Saving user: " + user + " to database...");
     }
 }
 
-class InventoryManager {
-    public void manageInventory(){
-        System.out.println("Managing Inventory...");
+class EmailService {
+    public void sendEmail(String email) {
+        System.out.println("Sending email to: " + email);
     }
 }
 
-class BakeryCleaner {
-    public void cleanBakery(){
-        System.out.println("Cleaning Bakery...");
+class UserLogger {
+    public void log(String message) {
+        System.out.println("Logging user activity..." + message);
     }
 }
 
 public class SingleResponsibility {
     public static void main(String[] args) {
-        InventoryManager inventoryManager = new InventoryManager();
-        SupplyOrder supplyOrder = new SupplyOrder();
-        CustomerService customerService = new CustomerService();
-        BakeryCleaner cleaner = new BakeryCleaner();
+        UserAuthenticator auth = new UserAuthenticator();
+        UserRepository repo = new UserRepository();
+        EmailService emailService = new EmailService();
+        UserLogger logger = new UserLogger();
 
-        // Each class focuses on its specific responsibility
-        inventoryManager.manageInventory();
-        supplyOrder.orderSupplies();
-        customerService.serveCustomer();
-        cleaner.cleanBakery();
+        auth.authenticate("admin", "password");
+        repo.saveUser("admin");
+        emailService.sendEmail("admin@example.com");
+        logger.log("User registered");
     }
 }
