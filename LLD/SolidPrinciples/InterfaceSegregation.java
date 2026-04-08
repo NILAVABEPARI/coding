@@ -1,59 +1,42 @@
 import java.util.Arrays;
 import java.util.List;
+// !! Lists are like vectors in C++
 
-interface IVegMenu {
-    List<String> getVegMenu();
+interface IMenu {
+    List<String> getMenu();
 }
 
-interface INonVegMenu {
-    List<String> getNonVegMenu();
-}
-
-interface IDrinksMenu {
-    List<String> getDrinksMenu();
-}
-
-class VegMenu implements IVegMenu {
+// Veg menu implementation
+class VegMenu implements IMenu {
     @Override
-    public List<String> getVegMenu() {
+    public List<String> getMenu() {
         return Arrays.asList("Veg Curry", "Paneer", "Dal");
     }
 }
 
-class NonVegMenu implements INonVegMenu {
+// Non-Veg menu implementation
+class NonVegMenu implements IMenu {
     @Override
-    public List<String> getNonVegMenu() {
+    public List<String> getMenu() {
         return Arrays.asList("Mutton", "Chicken", "Egg");
     }
 }
 
-class DrinksMenu implements IDrinksMenu {
+// Drinks menu implementation
+class DrinksMenu implements IMenu {
     @Override
-    public List<String> getDrinksMenu() {
+    public List<String> getMenu() {
         return Arrays.asList("Coke", "Lassi", "Water");
     }
 }
 
 class MenuDisplay {
-    public static void displayVegMenu(IVegMenu menu) {
-        System.out.println("Veg Menu:");
-        for (String item : menu.getVegMenu()) {
+    public static void displayMenu(IMenu menu, String menuType) {
+        System.out.println("Menu Type: " + menuType);
+        for (String item : menu.getMenu()) {
             System.out.println("- " + item);
         }
-    }
-
-    public static void displayNonVegMenu(INonVegMenu menu) {
-        System.out.println("Non Veg Menu:");
-        for (String item : menu.getNonVegMenu()) {
-            System.out.println("- " + item);
-        }
-    }
-
-    public static void displayDrinksMenu(IDrinksMenu menu) {
-        System.out.println("Drinks Menu:");
-        for (String item : menu.getDrinksMenu()) {
-            System.out.println("- " + item);
-        }
+        System.out.println();
     }
 }
 
@@ -63,8 +46,8 @@ public class InterfaceSegregation {
         NonVegMenu nonVegMenu = new NonVegMenu();
         DrinksMenu drinksMenu = new DrinksMenu();
 
-        MenuDisplay.displayVegMenu(vegMenu);
-        MenuDisplay.displayNonVegMenu(nonVegMenu);
-        MenuDisplay.displayDrinksMenu(drinksMenu);
+        MenuDisplay.displayMenu(vegMenu, "veg menu");
+        MenuDisplay.displayMenu(nonVegMenu, "non veg menu");
+        MenuDisplay.displayMenu(drinksMenu, "drinks menu");
     }
 }
