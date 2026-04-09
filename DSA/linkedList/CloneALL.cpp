@@ -11,19 +11,19 @@ public:
     ListNode *random;
     ListNode()
     {
-        val = 0;
+        data = 0;
         next = NULL;
         random = NULL;
     }
     ListNode(int data1)
     {
-        val = data1;
+        data = data1;
         next = NULL;
         random = NULL;
     }
     ListNode(int data1, ListNode *next1, ListNode *r)
     {
-        val = data1;
+        data = data1;
         next = next1;
         random = r;
     }
@@ -32,13 +32,13 @@ public:
 class Solution
 {
 private:
-    void *insertCopyInBetween(ListNode *head)
+    void insertCopyInBetween(ListNode *head)
     {
         // connect all newly created nodes
         ListNode *temp = head;
         while (temp)
         {
-            ListNode *newNode = new ListNode(temp->val);
+            ListNode *newNode = new ListNode(temp->data);
             newNode->next = temp->next;
             temp->next = newNode;
             temp = temp->next->next;
@@ -83,7 +83,7 @@ public:
         ListNode *temp = head;
         while (temp)
         {
-            ListNode *newNode = new ListNode(temp->val);
+            ListNode *newNode = new ListNode(temp->data);
             mp[temp] = newNode;
             temp = temp->next;
         }
