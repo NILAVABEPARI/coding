@@ -462,8 +462,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "d:/nilavadata/coding",
-      "program": "d:/nilavadata/coding/build/Debug/outDebug",
+      "cwd": "d:/nilavadata/coding/DSA/stack_queue",
+      "program": "d:/nilavadata/coding/DSA/stack_queue/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

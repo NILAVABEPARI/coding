@@ -52,20 +52,12 @@ int main()
 {
     int n = 6;
     vector<int> arr = {5, 7, 1, 7, 6, 0};
-
-    /* Creating an instance of
-    Solution class */
     Solution sol;
-
-    /* Function call to find the next greater element
-    for each element in the circular array */
     vector<int> ans = sol.nextGreaterElements(arr);
-
     cout << "The next greater elements are: ";
     for (int i = 0; i < n; i++)
     {
         cout << ans[i] << " ";
     }
-
     return 0;
 }

@@ -1,6 +1,4 @@
-#include <iostream>
-#include <vector>
-#include <deque>
+#include <bits/stdc++.h>
 using namespace std;
 
 class Solution
@@ -43,7 +41,7 @@ public:
 
 int main()
 {
-    string nums = {4, 0, -1, 3, 5, 3, 6, 8};
+    vector<int> nums = {4, 0, -1, 3, 5, 3, 6, 8};
     int k = 3;
     Solution sol;
     cout << "max in window == " << endl;
