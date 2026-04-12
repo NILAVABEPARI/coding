@@ -2,6 +2,7 @@ const arr = [1, 2, 3, 4, 5];
 const thisIsThis = { hey: 1 };
 
 
+
 // a function which returns an array by squaring each index
 // const result = myMap(arr, transformArray, thisIsThis);
 // console.log('result squared -- ', result);
@@ -42,7 +43,7 @@ Array.prototype.myMap = function (callbackFn, thisArg) {
     // map doesn't use for loop, it uses while loop and it sets the new value in the particular index instead of pushing it into the array
     let ind = 0;
     while (ind < this.length) {
-        // edge case -- need to check if index is initialized or not
+        // edge case -- need to check if index is initialized or not -- in case of sparse array the indices are not initialized and an empty array is created (2 ways to create a sparse array -- first using new array, second manually changing the length of a array to greater value)
         if (this.hasOwnProperty(ind)) {
             result[ind] = callbackFn.call(thisArg, this[ind], ind, this);
         }
@@ -58,3 +59,14 @@ function getSquaredNumber(num) {
 // always have a named function call as a callbackFn because otherwise we have to read the entire function to understand what is happening inside it.
 const resultPolyfill = arr.myMap(getSquaredNumber, thisIsThis);
 console.log('result -- ', resultPolyfill);
+
+const sample1 = [1, 2, 3, 4];
+const sample2 = new Array(10);
+const sample3 = [1, , , , , 2, , , , , 3, , , , , 4];
+const sample4 = { length: 2, 0: 10, 1: 20, 3: 30 };
+
+const result1 = sample1.myMap(d => d * 2);
+const result2 = sample2.myMap(d => d * 2);
+const result3 = sample3.myMap(d => d * 2);
+const result4 = Array.prototype.myMap.call(sample4, d => d * 2);
+console.log("result1 -- ", result1, "result2 -- ", result2, "result3 -- ", result3, "result4 -- ", result4);
