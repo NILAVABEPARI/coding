@@ -25,7 +25,26 @@ function flatten(origArray, level = 1) {
     return result;
 }
 
-console.log("using polyfill -- ", flatten(sampleData)); // 1 level
-console.log("using polyfill -- ", flatten(sampleData2)); // 1 level
-console.log("using polyfill -- ", flatten(sampleData, 2)); // 2nd level nested
-console.log("using polyfill -- ", flatten(sampleData, 100)); // entire array
+// in prototype chain -- 
+Array.prototype.myFlat = function (depth = 1) {
+    const result = [];
+
+    const flatten = (arr, currentDepth) => {
+        arr.forEach((element) => {
+            if (Array.isArray(element) && currentDepth > 0) {
+                flatten(element, currentDepth - 1);
+            } else {
+                result.push(element);
+            }
+        });
+    };
+
+    flatten(this, depth);
+
+    return result;
+};
+
+console.log("using polyfill -- ", sampleData.myFlat()); // 1 level
+console.log("using polyfill -- ", sampleData2.myFlat()); // 1 level
+console.log("using polyfill -- ", sampleData.myFlat(2)); // 2nd level nested
+console.log("using polyfill -- ", sampleData.myFlat(100)); // entire array

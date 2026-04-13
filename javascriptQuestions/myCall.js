@@ -49,11 +49,34 @@ const car = {
 function purchaseCar(currency, price) {
     console.log(`I have purchased ${this.color} - ${this.company} car for ${currency}${price}`);
 }
-Function.prototype.myCall = function (context = {}, ...args) {
-    console.log('this inside myCall function -- ', this);
+Function.prototype.myCall = function (context, ...args) {
+    console.log('this inside myCall function -- ', this); // !! this is the function itself
     if (typeof this !== "function") {
-        throw new Error(this + " is not a function");
+        throw new TypeError(this + " is not a function");
     }
+    console.log('globalThis -- ', globalThis); // this is the window object
+    console.log('context -- ', context); // this is the car object
+    console.log('Object(context) -- ', Object(context));
+    /*
+        !! Object(context) --- 
+        * It converts the provided value into an object wrapper.
+        * Example: console.log(Object("hello"));
+        * Output: [String: 'hello']
+        * Example: console.log(Object(42));
+        * Output: [Number: 42]
+        * Example: console.log(Object(true));
+        * Output: [Boolean: true]
+    */
+    // globalThis is the window object
+    context = context == null ? globalThis : Object(context);
+    /*
+        * Suppose context.tempFn = this;
+        * What if object already has: car.tempFn = "something"
+        * Then: Your polyfill overwrites it: car.tempFn = purchaseCar
+        * Symbol Prevents Collision
+        * Every Symbol is UNIQUE.
+        * Example: Symbol() !== Symbol() always true.
+    */
     const fnSymbol = Symbol();
     console.log('fnSymbol -- ', fnSymbol);
 

@@ -14,15 +14,19 @@ const car = {
 function purchaseCar(currency, price) {
     console.log(`I have purchased ${this.color} - ${this.company} car for ${currency}${price}`);
 }
-Function.prototype.myApply = function (context = {}, args = []) {
+Function.prototype.myApply = function (context, args = []) {
     if (typeof this !== "function") {
-        throw new Error(this + " is not a function");
+        throw new TypeError(this + " is not a function");
     }
+    context = context == null ? globalThis : Object(context);
     if (!Array.isArray(args)) {
         throw new TypeError("args is not an array");
     }
-    context.fn = this;
-    context.fn(...args);
+    const fnSymbol = Symbol();
+    context[fnSymbol] = this;
+    const result = context[fnSymbol](...args);
+    delete context[fnSymbol];
+    return result;
 }
 // purchaseCar.apply(car, ["$", 50000]);
 purchaseCar.myApply(car, ["$", 50000]);

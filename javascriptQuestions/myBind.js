@@ -16,15 +16,17 @@ const car = {
 function purchaseCar(currency, price) {
     console.log(`I have purchased ${this.color} - ${this.company} car for ${currency}${price}`);
 }
-Function.prototype.myBind = function (context = {}, ...args) {
+Function.prototype.myBind = function (context, ...args) {
+    console.log('this inside myBind function -- ', this); // !! this is the function itself
     if (typeof this !== "function") {
         throw new Error(this + "is not a function");
     }
+    const originalFn = this;
+    context = context == null ? globalThis : Object(context);
 
-    context.fn = this;
     return function (...newArgs) {
-        return context.fn(...args, ...newArgs);
-    }
+        return originalFn.apply(context, [...args, ...newArgs]);
+    };
 }
 const myBindFunc = purchaseCar.myBind(car);
 myBindFunc("$", 50000);
