@@ -40,17 +40,16 @@
 // }
 // console.log(sum(2)(3)(15)());
 
-// function sumAdvance(...a) {
-//     return function (...b) {
-//         if (b?.length === 0) {
-//             return a?.[0] || 0;
-//         } else {
-//             return sumAdvance(a?.reduce((acc, curr) => acc + curr, 0),
-//                 b?.reduce((acc, curr) => acc + curr, 0));
-//         }
-//     }
-// }
-// console.log("sumAdvance -- ", sumAdvance(2, 3, 4)(12, 5)());
+function sumAdvance(...a) {
+    return function (...b) {
+        if (b?.length === 0) {
+            return a.reduce((acc, curr) => acc + curr, 0);
+        } else {
+            return sumAdvance(...a, ...b);
+        }
+    }
+}
+console.log("sumAdvance -- ", sumAdvance(2, 3, 4)(12, 5)());
 
 // // Question 4 -- Partial Application
 // function sum2(a) {
@@ -63,28 +62,28 @@
 // console.log(sum(20)(1, 4));
 
 // Question 5 -- Convert f(a,b,c,d) to (a)(b)(c)(d)
-function curry(func) {
-    console.log('func inside curry -- ', func);
-    return function curriedFunc(...args) {
-        console.log('args inside curriedFunc -- ', args);
-        console.log('args.length -- ', args.length, " -- func.length -- ", func.length);
-        if (args.length >= func.length) {
-            console.log('----------');
-            return func(...args);
-        }
-        else {
-            return function (...next) {
-                console.log('next inside return -- ', next);
-                console.log('----------');
-                return curriedFunc(...args, ...next);
-            }
-        }
-    }
-}
-const sum = (a, b, c, d) => a + b + c + d;
-const totalSum = curry(sum);
-console.log(totalSum(1)(2)(3)(4));
-console.log(totalSum(1, 2)(3, 4));
+// function curry(func) {
+//     console.log('func inside curry -- ', func);
+//     return function curriedFunc(...args) {
+//         console.log('args inside curriedFunc -- ', args);
+//         console.log('args.length -- ', args.length, " -- func.length -- ", func.length);
+//         if (args.length >= func.length) {
+//             console.log('----------');
+//             return func(...args);
+//         }
+//         else {
+//             return function (...next) {
+//                 console.log('next inside return -- ', next);
+//                 console.log('----------');
+//                 return curriedFunc(...args, ...next);
+//             }
+//         }
+//     }
+// }
+// const sum = (a, b, c, d) => a + b + c + d;
+// const totalSum = curry(sum);
+// console.log(totalSum(1)(2)(3)(4));
+// console.log(totalSum(1, 2)(3, 4));
 
 // the curry function is called the number of times totalSum is called
 // args contains the 1st argument in the totalSum function, and next contains the 2nd argument
