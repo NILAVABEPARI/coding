@@ -2,6 +2,83 @@
   "version": "2.0.0",
   "configurations": [
     {
+      "type": "java",
+      "name": "EnumClass",
+      "request": "launch",
+      "mainClass": "EnumClass",
+      "projectName": "coding_667dc21b"
+    },
+    {
+      "type": "java",
+      "name": "Enums",
+      "request": "launch",
+      "mainClass": "Enums",
+      "projectName": "coding_667dc21b"
+    },
+    {
+      "type": "java",
+      "name": "Interface",
+      "request": "launch",
+      "mainClass": "Interface",
+      "projectName": "coding_667dc21b"
+    },
+    {
+      "type": "java",
+      "name": "AbstractAnonymousInnerClass",
+      "request": "launch",
+      "mainClass": "AbstractAnonymousInnerClass",
+      "projectName": "coding_667dc21b"
+    },
+    {
+      "type": "java",
+      "name": "AnonymousInnerClass",
+      "request": "launch",
+      "mainClass": "AnonymousInnerClass",
+      "projectName": "coding_667dc21b"
+    },
+    {
+      "type": "java",
+      "name": "InnerClass",
+      "request": "launch",
+      "mainClass": "InnerClass",
+      "projectName": "coding_667dc21b"
+    },
+    {
+      "type": "java",
+      "name": "AbstractKeyword",
+      "request": "launch",
+      "mainClass": "AbstractKeyword",
+      "projectName": "coding_667dc21b"
+    },
+    {
+      "type": "java",
+      "name": "ObjectClass",
+      "request": "launch",
+      "mainClass": "ObjectClass",
+      "projectName": "coding_667dc21b"
+    },
+    {
+      "type": "java",
+      "name": "Final",
+      "request": "launch",
+      "mainClass": "Final",
+      "projectName": "coding_667dc21b"
+    },
+    {
+      "type": "java",
+      "name": "Static",
+      "request": "launch",
+      "mainClass": "Static",
+      "projectName": "coding_667dc21b"
+    },
+    {
+      "type": "java",
+      "name": "StringDemo",
+      "request": "launch",
+      "mainClass": "StringDemo",
+      "projectName": "coding_667dc21b"
+    },
+    {
       "name": "(gdb) Attach",
       "type": "cppdbg",
       "request": "attach",
