@@ -3,6 +3,41 @@
   "configurations": [
     {
       "type": "java",
+      "name": "RaceCondition",
+      "request": "launch",
+      "mainClass": "RaceCondition",
+      "projectName": "coding_667dc21b"
+    },
+    {
+      "type": "java",
+      "name": "RunnableOverThread",
+      "request": "launch",
+      "mainClass": "RunnableOverThread",
+      "projectName": "coding_667dc21b"
+    },
+    {
+      "type": "java",
+      "name": "Threads",
+      "request": "launch",
+      "mainClass": "Threads",
+      "projectName": "coding_667dc21b"
+    },
+    {
+      "type": "java",
+      "name": "LambdaExpression",
+      "request": "launch",
+      "mainClass": "LambdaExpression",
+      "projectName": "coding_667dc21b"
+    },
+    {
+      "type": "java",
+      "name": "FunctionalInterface",
+      "request": "launch",
+      "mainClass": "FunctionalInterface",
+      "projectName": "coding_667dc21b"
+    },
+    {
+      "type": "java",
       "name": "EnumClass",
       "request": "launch",
       "mainClass": "EnumClass",
