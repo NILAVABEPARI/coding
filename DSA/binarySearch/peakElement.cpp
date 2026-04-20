@@ -7,7 +7,7 @@ public:
             return 0;
         if (arr[arr.size() - 1] > arr[arr.size() - 2])
             return arr.size() - 1;
-        int peak, l = 1, h = arr.size() - 2;
+        int l = 1, h = arr.size() - 2;
         while (l <= h)
         {
             int mid = l + (h - l) / 2;
@@ -18,6 +18,6 @@ public:
             else
                 l = mid + 1;
         }
-        return peak;
+        return -1;
     }
 };
