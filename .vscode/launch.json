@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Main",
+      "request": "launch",
+      "mainClass": "org.nilava.Main",
+      "projectName": "HibernateProject"
+    },
+    {
+      "type": "java",
       "name": "RaceCondition",
       "request": "launch",
       "mainClass": "RaceCondition",
