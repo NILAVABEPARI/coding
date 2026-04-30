@@ -1,5 +1,6 @@
 package org.nilava;
 
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
@@ -9,6 +10,7 @@ public class Alien {
     private int aid;
     private String aname;
     private String tech;
+    @Embedded
     private Laptop laptop;
 
     public Laptop getLaptop() {
@@ -49,7 +51,6 @@ public class Alien {
                 "aid=" + aid +
                 ", aname='" + aname + '\'' +
                 ", tech='" + tech + '\'' +
-                ", laptop=" + laptop +
                 '}';
     }
 }
