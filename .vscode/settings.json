@@ -118,6 +118,7 @@
     "Adaptee",
     "FCFS",
     "heapify",
+    "kadane's",
     "Lassi",
     "Liskov",
     "Macbook",
@@ -188,5 +189,6 @@
   "C_Cpp_Runner.useLeakSanitizer": false,
   "C_Cpp_Runner.showCompilationTime": false,
   "C_Cpp_Runner.useLinkTimeOptimization": false,
-  "C_Cpp_Runner.msvcSecureNoWarnings": false
+  "C_Cpp_Runner.msvcSecureNoWarnings": false,
+  "java.compile.nullAnalysis.mode": "automatic"
 }
