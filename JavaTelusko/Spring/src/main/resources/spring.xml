@@ -4,6 +4,42 @@
        xsi:schemaLocation="
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="alien" class="org.example.Alien">
+    <!-- the below line tells spring to create an object of Alien with an id of alien -->
+    <!-- if we have multiple beans created for the same class then spring will create multiple objects of that class -->
+    <!-- by making the scope as prototype the spring container will only create the class when .getBean is called -->
+    <!-- also in this case the object is not created at the start but when .getBean is called -->
+    <bean id="alien" class="org.example.Alien" scope="prototype">
+        <!-- here the name is the name of the variable -->
+        <!-- since we are using primitive data type so we are using value to set its value -->
+        <!--        <property name="age" value="21"> </property>-->
+        <!-- here we are not using primitive type so we need to use ref attribute to point to the reference of the variable  -->
+
+        <!-- Constructor Injection -->
+        <!-- in case of multiple arguments in constructor the sequencing matters -->
+<!--        <constructor-arg value="21"/>-->
+<!--        <constructor-arg ref="lap1"/>-->
+        <!-- in this case the sequencing will not matter as long as every argument is of different type -->
+<!--        <constructor-arg type="org.example.Laptop" value="21"/>-->
+<!--        <constructor-arg type="int" ref="lap1"/>-->
+
+        <!-- in this case sequencing will matter -->
+        <!-- these are the name of the reference in the constructor -->
+<!--        <constructor-arg name="lap" value="21"/>-->
+<!--        <constructor-arg name="age" ref="lap1"/>-->
+
+        <!-- in this case sequencing will not matter -->
+        <constructor-arg index="0" value="21"/>
+        <constructor-arg index="1" ref="lap1"/>
+        <property name="lap" ref="lap1"> </property>
     </bean>
+
+    <!-- in order to use the reference we need to first create it -->
+    <bean id="lap1" class="org.example.Laptop"> </bean>
+
+    <!-- <bean id="alien2" class="org.example.Alien"> -->
+    <!-- </bean> -->
+
+    <!-- <bean id="alien3" class="org.example.Alien"> -->
+    <!-- </bean> -->
+
 </beans>
