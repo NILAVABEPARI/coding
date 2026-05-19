@@ -23,7 +23,7 @@ public:
                     countEqual++;
             }
 
-            if (countLess < k && (countLess + countEqual) == k)
+            if (countLess < k && (countLess + countEqual) >= k)
                 return mid;
             else if (countLess >= k)
                 high = mid - 1;
