@@ -13,6 +13,20 @@ struct TreeNode
     }
 };
 
+class Node
+{
+public:
+    int val;
+    vector<Node *> children;
+    Node() {}
+    Node(int _val) { val = _val; }
+    Node(int _val, vector<Node *> _children)
+    {
+        val = _val;
+        children = _children;
+    }
+};
+
 class Solution
 {
 private:
@@ -123,6 +137,75 @@ private:
             }
             ds.pop_back();
         }
+    }
+
+    int goodNodesRecur(TreeNode *root, int maxValFound)
+    {
+        if (!root)
+            return 0;
+        int cnt = 0;
+        cnt += goodNodesRecur(root->left, max(maxValFound, root->val));
+        cnt += goodNodesRecur(root->right, max(maxValFound, root->val));
+        cnt += root->val >= maxValFound ? 1 : 0;
+        return cnt;
+    }
+
+    void makeDLL(TreeNode *root, TreeNode *head, TreeNode *prev)
+    {
+        if (!root)
+            return;
+        makeDLL(root->left, head, prev);
+        if (!head)
+        {
+            head = root;
+            root->left = NULL;
+        }
+        else
+        {
+            prev->right = root;
+            root->left = prev;
+        }
+        prev = root;
+        makeDLL(root->right, head, prev);
+    }
+
+    int leftH(TreeNode *root)
+    {
+        int height = 0;
+        while (root)
+        {
+            height++;
+            root = root->left;
+        }
+        return height;
+    }
+    int rightH(TreeNode *root)
+    {
+        int height = 0;
+        while (root)
+        {
+            height++;
+            root = root->right;
+        }
+        return height;
+    }
+
+    int checkSum(TreeNode *root)
+    {
+        if (!root)
+            return 0;
+        if (!root->left && !root->right)
+            return root->val;
+        int ls = checkSum(root->left);
+        if (ls == -1)
+            return -1;
+        int rs = checkSum(root->right);
+        if (rs == -1)
+            return -1;
+        if (ls + rs == root->val)
+            return 2 * root->val;
+        else
+            return -1;
     }
 
 public:
@@ -384,5 +467,78 @@ public:
         if (!right)
             return left;
         return root;
+    }
+
+    TreeNode *sortedArrayToBST(vector<int> &nums)
+    {
+        int n = nums.size();
+        if (n == 0)
+            return NULL;
+        int mid = n / 2;
+        TreeNode *root = new TreeNode(nums[mid]);
+        vector<int> left(nums.begin(), nums.begin() + mid);
+        vector<int> right(nums.begin() + mid + 1, nums.end());
+        root->left = sortedArrayToBST(left);
+        root->right = sortedArrayToBST(right);
+        return root;
+    }
+
+    int goodNodes(TreeNode *root)
+    {
+        if (!root)
+            return 0;
+        return goodNodesRecur(root, root->val);
+    }
+
+    TreeNode *bToDLL(TreeNode *root)
+    {
+        TreeNode *head = NULL, *prev = NULL;
+        makeDLL(root, head, prev);
+        return head;
+    }
+
+    vector<vector<int>> levelOrderNAry(Node *root)
+    {
+        queue<Node *> q;
+        vector<vector<int>> ans;
+        if (!root)
+            return ans;
+        q.push(root);
+        while (!q.empty())
+        {
+            int size = q.size();
+            vector<int> temp;
+            while (size--)
+            {
+                Node *curr = q.front();
+                q.pop();
+                temp.push_back(curr->val);
+                for (int i = 0; i < curr->children.size(); i++)
+                {
+                    if (curr->children[i]) // because children of a node can be null
+                        q.push(curr->children[i]);
+                }
+            }
+            ans.push_back(temp);
+        }
+        return ans;
+    }
+
+    int countNodes(TreeNode *root)
+    {
+        if (!root)
+            return 0;
+        int leftHeight = leftH(root);
+        int rightHeight = rightH(root);
+        if (leftHeight == rightHeight)
+            return pow(2, leftHeight) - 1;
+        return 1 + countNodes(root->left) + countNodes(root->right);
+    }
+
+    bool sumTree(TreeNode *root)
+    {
+        if (checkSum(root) == -1)
+            return false;
+        return true;
     }
 };
