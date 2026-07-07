@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+// ! service/JobService.java — the business logic layer
+
 @Service
 public class JobService {
     @Autowired
@@ -22,3 +24,10 @@ public class JobService {
         return repo.getAllJobs();
     }
 }
+
+/*
+* A thin pass-through layer between the controller and the repo.
+* @Service-annotated, it just delegates addJob() and getAllJobs() straight to JobRepo.
+* In a real app, this is where you'd add validation, business rules, or logic that doesn't belong in the controller.
+
+ */

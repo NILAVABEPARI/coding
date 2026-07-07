@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
+// ! JobController.java — the request handler
+
 @Controller
 public class JobController {
 
@@ -28,8 +30,9 @@ public class JobController {
     }
 
     @PostMapping("handleForm")
-    public String handleForm(JobPost jobPost){
+    public String handleForm(JobPost jobPost, Model model){
         service.addJob(jobPost);
+        model.addAttribute("jobPost", jobPost);
         return "success";
     }
 
@@ -40,3 +43,10 @@ public class JobController {
         return "viewalljobs";
     }
 }
+
+/*
+* / or /home → returns "home" → resolves to home.jsp (landing page with two buttons)
+* /addjob (GET) → returns "addjob" → shows the job-posting form
+* /handleForm (POST) → takes form data, binds it into a JobPost object automatically (Spring's data binding matches form field name attributes to JobPost fields), saves it via the service, returns "success"
+* /viewalljobs (GET) → fetches all jobs from the service, puts them in the Model under key "jobPosts", returns "viewalljobs" → JSP loops over that list
+ */

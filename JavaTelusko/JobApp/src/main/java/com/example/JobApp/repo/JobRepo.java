@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+// ! repo/JobRepo.java — the data layer
+
 @Repository
 public class JobRepo {
     // ArrayList to store JobPost objects
@@ -29,3 +31,11 @@ public class JobRepo {
         System.out.println(jobs);
     }
 }
+
+/*
+* This is your "database" — except there's no real database.
+* It's an in-memory ArrayList<JobPost> preloaded with 5 hardcoded job posts.
+* @Repository marks it as Spring-managed.
+* Two methods: getAllJobs() returns the list, addJob() appends to it.
+* Since it's just an ArrayList in memory, any job you add disappears when the app restarts.
+ */
