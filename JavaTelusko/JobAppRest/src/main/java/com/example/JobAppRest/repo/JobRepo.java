@@ -31,6 +31,7 @@ public class JobRepo {
         System.out.println(jobs);
     }
 
+    // method to get a particular job object from arrayList
     public JobPost getJob(int postId) {
         for (JobPost job : jobs) {
             if (job.getPostId() == postId) {
@@ -40,6 +41,7 @@ public class JobRepo {
         return null;
     }
 
+    // method to update a particular job object from arrayList
     public void updateJob(JobPost jobPost) {
         for(JobPost job : jobs){
             if(job.getPostId() == jobPost.getPostId()){
@@ -51,12 +53,15 @@ public class JobRepo {
         }
     }
 
+    // method to delete a particular job object from arrayList
     public void deleteJob(int postID) {
-        for(JobPost job : jobs){
-            if(job.getPostId() == postID){
-                jobs.remove(job);
-            }
-        }
+//        for (JobPost job : jobs) {
+//            if (job.getPostId() == postID) {
+//                jobs.remove(job);
+//            }
+//        }
+        // * a better way to write the remove functionality
+        jobs.removeIf(job -> job.getPostId() == postID);
     }
 }
 

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+// * @RestController is actually shorthand for @Controller + @ResponseBody applied to every method in the class automatically.
 @RestController
 @CrossOrigin("http://localhost:3000")
 public class JobRestController {
@@ -14,12 +15,14 @@ public class JobRestController {
     @Autowired
     private JobService service;
 
+    // ! @ResponseBody -- this is common for any route
+    // ! produces = {"application/json"} -- makes sure that only json format is returned and returns error if xml is requested
     @GetMapping(path = "jobPosts", produces = {"application/json"})
-//    @ResponseBody
     public List<JobPost> getAllJobs(){
         return service.getAllJobs();
     }
 
+    // ! in this way we can get variables from url path
     @GetMapping("jobPost/{postID}")
     public JobPost getJob(@PathVariable("postID") int postID){
         return service.getJob(postID);
@@ -43,3 +46,9 @@ public class JobRestController {
         return "Deleted Job";
     }
 }
+
+/*
+* @Controller → returns view names by default (your JSP-based JobController)
+* @Controller + @ResponseBody on a method → that one method returns raw data instead of a view
+* @RestController → every method in the class returns raw data by default (this file)
+ */
