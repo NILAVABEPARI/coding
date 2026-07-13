@@ -2,6 +2,7 @@
 #include <vector>
 using namespace std;
 
+// the 1st element in the array which is greater than the target
 class Solution
 {
 public:
