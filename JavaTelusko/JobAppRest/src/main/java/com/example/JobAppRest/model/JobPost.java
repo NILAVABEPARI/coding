@@ -1,5 +1,7 @@
 package com.example.JobAppRest.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,7 +27,9 @@ Common Lombok annotations you'll run into:
 @NoArgsConstructor
 @AllArgsConstructor
 @Component
+@Entity
 public class JobPost {
+    @Id
     private int postId;
     private String postProfile;
     private String postDesc;

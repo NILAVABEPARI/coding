@@ -11,8 +11,8 @@ import java.util.List;
 @SpringBootApplication
 public class SpringJdbcDemoApplication {
 
-	public static void main(String[] args) {
-		ApplicationContext context = SpringApplication.run(SpringJdbcDemoApplication.class, args);
+    public static void main(String[] args) {
+        ApplicationContext context = SpringApplication.run(SpringJdbcDemoApplication.class, args);
 
         Student s = context.getBean(Student.class);
         s.setMarks(78);
@@ -25,6 +25,6 @@ public class SpringJdbcDemoApplication {
 
         List<Student> students = service.getStudents();
         System.out.println(students);
-	}
+    }
 
 }
