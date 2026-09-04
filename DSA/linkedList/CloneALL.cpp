@@ -51,6 +51,8 @@ private:
         while (temp)
         {
             ListNode *copiedNode = temp->next;
+            // !! temp->random will point to the random node of original list
+            // !! thats why we point to its next so that it points to the random of new list
             if (temp->random)
                 copiedNode->random = temp->random->next;
             else
